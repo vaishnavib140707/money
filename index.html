@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Midnight Money</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="dashboardContent" hidden></div>
+
+    <!-- HEADER AND NAVIGATION -->
+
+    <header class="topbar">
+
+        <a href="#" class="logo">
+            midnight<span>.</span>
+        </a>
+
+        <nav class="main-nav">
+            <a href="#dashboard">Home</a>
+            <a href="#bills">Bills</a>
+            <a href="#expense">Add expense</a>
+            <a href="#transactions">Transactions</a>
+            <a href="#savings">Savings</a>
+            <a href="#goals">Goals</a>
+            <a href="#calendar">Calendar</a>
+            <button type="button" id="logoutButton" class="logout-button">
+    Log out
+</button>
+        </nav>
+
+        <div class="month-label" id="monthLabel"></div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- WELCOME SECTION -->
+
+        <section class="welcome">
+
+            <p class="eyebrow">
+                YOUR PERSONAL FINANCE SPACE
+            </p>
+
+            <h1>
+                Money, <span>under control.</span>
+            </h1>
+
+            <p class="subtitle">
+                Plan your month. Track your spending. Stay in control.
+            </p>
+
+        </section>
+
+
+        <!-- MONTHLY INCOME -->
+
+        <section class="panel income-panel">
+
+            <div>
+                <p class="eyebrow">MONTHLY INCOME</p>
+
+                <h2>Set your salary</h2>
+
+                <p class="muted">
+                    Enter your take-home income for this month.
+                </p>
+            </div>
+
+            <form id="incomeForm" class="inline-form">
+
+                <label class="sr-only" for="income">
+                    Monthly income in rupees
+                </label>
+
+                <span class="rupee">₹</span>
+
+                <input
+                    id="income"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="30000"
+                    required
+                >
+
+                <button type="submit">
+                    Save income
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- DASHBOARD SUMMARY CARDS -->
+
+        <section class="stats-grid" id="dashboard">
+
+            <!-- AVAILABLE BALANCE -->
+
+            <article class="stat-card main-stat">
+
+                <p class="eyebrow">AVAILABLE TO SPEND</p>
+
+                <h2 id="availableBalance">₹0</h2>
+
+                <p class="muted">
+                    Income minus reserved bills and daily spending
+                </p>
+
+            </article>
+
+
+            <!-- MONTHLY INCOME -->
+
+            <article class="stat-card">
+
+                <p class="eyebrow">MONTHLY INCOME</p>
+
+                <h2 id="totalIncome">₹0</h2>
+
+                <p class="muted">
+                    Your take-home salary
+                </p>
+
+            </article>
+
+
+            <!-- BILLS RESERVED -->
+
+            <article class="stat-card">
+
+                <p class="eyebrow">BILLS RESERVED</p>
+
+                <h2 id="totalBills">₹0</h2>
+
+                <p class="muted">
+                    Money set aside for fixed expenses
+                </p>
+
+            </article>
+
+
+            <!-- DAILY SPENDING -->
+
+            <article class="stat-card">
+
+                <p class="eyebrow">DAILY SPENDING</p>
+
+                <h2 id="totalSpent">₹0</h2>
+
+                <p class="muted">
+                    Total everyday expenses this month
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- DAILY ALLOWANCE -->
+
+        <section class="panel allowance-panel">
+
+            <div>
+
+                <p class="eyebrow">
+                    YOUR DAILY ALLOWANCE
+                </p>
+
+                <h2 id="dailyAllowance">
+                    ₹0 <span>/ day</span>
+                </h2>
+
+                <p class="muted" id="daysRemaining">
+                    Set your income to begin.
+                </p>
+
+                <button
+                    type="button"
+                    id="closeDayButton"
+                    class="secondary-button"
+                >
+                    Finish today's budget
+                </button>
+
+            </div>
+
+            <div class="allowance-icon">
+                ↗
+            </div>
+
+        </section>
+
+
+        <!-- MONTHLY SPENDING PROGRESS -->
+
+        <section class="progress-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        MONTHLY OVERVIEW
+                    </p>
+
+                    <h2>Spending progress</h2>
+
+                </div>
+
+                <span id="progressLabel" class="muted">
+                    0% used
+                </span>
+
+            </div>
+
+
+            <div class="progress-track">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+
+            </div>
+
+
+            <p
+                class="muted progress-caption"
+                id="progressCaption"
+            >
+                Your spending summary will appear here.
+            </p>
+
+        </section>
+
+
+        <!-- BILLS AND EXPENSE FORMS -->
+
+        <div class="content-grid">
+
+
+            <!-- MONTHLY BILLS -->
+
+            <section class="panel" id="bills">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PLAN AHEAD
+                        </p>
+
+                        <h2>Monthly bills</h2>
+
+                    </div>
+
+                    <span class="section-icon">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <p class="muted section-description">
+                    Reserve money for bills before spending on anything else.
+                </p>
+
+
+                <form id="billForm" class="form-stack">
+
+                    <label for="billName">
+                        Bill name
+                    </label>
+
+                    <input
+                        id="billName"
+                        type="text"
+                        placeholder="e.g. Electricity bill"
+                        required
+                    >
+
+
+                    <label for="billAmount">
+                        Amount (₹)
+                    </label>
+
+                    <input
+                        id="billAmount"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="1500"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="secondary-button"
+                    >
+                        + Add monthly bill
+                    </button>
+
+                </form>
+
+
+                <div id="billList" class="item-list">
+
+                    <p class="empty-state">
+                        No bills added yet.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ADD EXPENSE -->
+
+            <section class="panel" id="expense">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            TRACK YOUR MONEY
+                        </p>
+
+                        <h2>Add an expense</h2>
+
+                    </div>
+
+                    <span class="section-icon">
+                        ＋
+                    </span>
+
+                </div>
+
+
+                <form id="expenseForm" class="form-stack">
+
+
+                    <label for="expenseName">
+                        What did you spend on?
+                    </label>
+
+                    <input
+                        id="expenseName"
+                        type="text"
+                        placeholder="e.g. Coffee with friends"
+                        required
+                    >
+
+
+                    <label for="expenseAmount">
+                        Amount (₹)
+                    </label>
+
+                    <input
+                        id="expenseAmount"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="250"
+                        required
+                    >
+
+
+                    <label for="expenseCategory">
+                        Category
+                    </label>
+
+                    <select id="expenseCategory" required>
+
+                        <option value="Food">
+                            Food & drinks
+                        </option>
+
+                        <option value="Transport">
+                            Transport
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Personal">
+                            Personal care
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <label for="expenseDate">
+                        Date
+                    </label>
+
+                    <input
+                        id="expenseDate"
+                        type="date"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        + Record expense
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- RECENT TRANSACTIONS -->
+
+        <section
+            class="panel history-panel"
+            id="transactions"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        WHERE YOUR MONEY GOES
+                    </p>
+
+                    <h2>Recent transactions</h2>
+
+                </div>
+
+                <span
+                    id="transactionCount"
+                    class="muted"
+                >
+                    0 transactions
+                </span>
+
+            </div>
+
+
+            <div id="expenseList" class="item-list">
+
+                <p class="empty-state">
+                    Your transactions will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SAVINGS -->
+
+        <section
+            class="panel history-panel"
+            id="savings"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        MONEY YOU KEPT
+                    </p>
+
+                    <h2>Your savings</h2>
+
+                </div>
+
+                <span class="section-icon">
+                    ✦
+                </span>
+
+            </div>
+
+
+            <p class="muted">
+                Money saved by spending less than your daily allowance.
+                This money is kept separate from your spending budget.
+            </p>
+
+
+            <h2
+                id="savingsTotal"
+                class="savings-total"
+            >
+                ₹0
+            </h2>
+
+
+            <div id="savingsList" class="item-list">
+
+                <p class="empty-state">
+                    Your savings will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+<!-- QUICK ADD EXPENSE BUTTON -->
+
+<a href="#expense" class="quick-add-button">
+    <span>＋</span>
+    Quick Add Expense
+</a>
+
+
+<!-- SAVINGS GOALS -->
+
+<section class="panel goals-panel" id="goals">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">YOUR FUTURE, YOUR GOALS</p>
+            <h2>Savings goals</h2>
+        </div>
+        <span class="section-icon">✦</span>
+    </div>
+
+    <p class="muted">
+        Give your savings a purpose. Set a target and track your progress.
+    </p>
+
+    <form id="goalForm" class="goal-form">
+
+        <label for="goalName">What are you saving for?</label>
+        <input
+            id="goalName"
+            type="text"
+            placeholder="e.g. New laptop"
+            required
+        >
+
+        <label for="goalTarget">Target amount (₹)</label>
+        <input
+            id="goalTarget"
+            type="number"
+            min="0.01"
+            step="0.01"
+            placeholder="50000"
+            required
+        >
+
+        <button type="submit">+ Create savings goal</button>
+
+    </form>
+
+    <div id="goalsList" class="goals-list">
+        <p class="empty-state">Your savings goals will appear here.</p>
+    </div>
+
+</section>
+
+
+<section class="panel calendar-panel" id="calendar">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">YOUR SPENDING AT A GLANCE</p>
+            <h2>Monthly calendar</h2>
+        </div>
+        <span class="section-icon">▦</span>
+    </div>
+
+    <div class="calendar-header">
+        <button type="button" id="prevMonth">←</button>
+        <h3 id="calendarMonth"></h3>
+        <button type="button" id="nextMonth">→</button>
+    </div>
+
+    <div class="calendar-weekdays">
+        <span>Sun</span>
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span>Sat</span>
+    </div>
+
+    <div class="calendar-grid" id="calendarGrid"></div>
+
+    <div class="calendar-details" id="calendarDetails">
+        <p class="empty-state">Select a date to see your transactions.</p>
+    </div>
+</section>
+
+
+<!-- DATA BACKUP -->
+
+<section class="panel backup-panel">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">YOUR DATA, YOUR CONTROL</p>
+            <h2>Data backup</h2>
+        </div>
+
+        <span class="section-icon">↓</span>
+    </div>
+
+    <p class="muted">
+        Keep a copy of your financial records safe.
+        Download a backup whenever you need one.
+    </p>
+
+    <button type="button" id="exportBackup">
+        ↓ Download my backup
+    </button>
+
+    <p class="muted backup-note">
+        Your backup includes all Midnight Money monthly records
+        saved in this browser.
+    </p>
+
+</section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                made for your peace of mind
+                <span>✦</span>
+            </p>
+
+            <p class="muted">
+                Midnight Money · Your money stays in this browser.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="dashboard-auth.js"></script>
+<script src="script.js"></script>
+
+    </div>
+</body>
+</html>

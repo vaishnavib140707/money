@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Midnight Money</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <main class="auth-container">
+
+        <section class="auth-brand">
+            <div class="brand-logo">midnight<span>.</span></div>
+
+            <h1>Take control of<br>
+                <span>your money.</span>
+            </h1>
+
+            <p>
+                Track your spending, build better habits,
+                and make every rupee count.
+            </p>
+
+            <div class="brand-footer">
+                YOUR MONEY. YOUR MIDNIGHT.
+            </div>
+        </section>
+
+        <section class="auth-section">
+            <div class="auth-card">
+
+                <div class="auth-header">
+                    <p class="eyebrow">WELCOME TO MIDNIGHT MONEY</p>
+                    <h2 id="authTitle">Welcome back</h2>
+                    <p id="authSubtitle">
+                        Sign in to continue your financial journey.
+                    </p>
+                </div>
+
+                <form id="authForm">
+
+                    <div class="input-group">
+                        <label for="email">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                    <p id="authMessage" class="auth-message"
+                       role="status" aria-live="polite"></p>
+
+                    <button type="submit" class="auth-button" id="authSubmit">
+                        Sign in
+                    </button>
+
+                </form>
+
+                <p class="auth-switch">
+                    <span id="switchText">Don't have an account?</span>
+                    <button type="button" id="switchAuth">
+                        Sign up
+                    </button>
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth.js"></script>>
+</body>
+</html>

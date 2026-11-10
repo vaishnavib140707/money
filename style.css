@@ -1,0 +1,1831 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #070B14;
+    --panel: #0E1625;
+    --panel-light: #121F33;
+    --border: #23334D;
+    --blue: #75A7FF;
+    --blue-light: #A9C8FF;
+    --text: #F0F4FF;
+    --muted: #8C9AB4;
+    --danger: #FF929E;
+    --success: #86E5C0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 80% 0%, #132746 0%, transparent 38%),
+        var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    min-height: 100vh;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 7%;
+    border-bottom: 1px solid rgba(117, 167, 255, 0.12);
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.month-label {
+    color: var(--blue-light);
+    font-size: 13px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 9px 14px;
+    border-radius: 30px;
+}
+
+.container {
+    width: min(1100px, 88%);
+    margin: 0 auto;
+}
+
+.welcome {
+    padding: 48px 0 30px;
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+h1, h2, p {
+    margin-top: 0;
+}
+
+h1, h2 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+h2 {
+    font-size: 21px;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.subtitle, .muted {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.panel, .stat-card {
+    background: linear-gradient(145deg, #101A2B, #0C1320);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 25px;
+    min-width: 0;
+}
+
+.income-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.income-panel h2 {
+    margin-bottom: 5px;
+}
+
+.income-panel .muted {
+    margin-bottom: 0;
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.rupee {
+    color: var(--blue);
+    font-size: 21px;
+}
+
+input, select {
+    width: 100%;
+    min-width: 0;
+    background: #090F1A;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 9px;
+    padding: 12px;
+}
+
+.inline-form input {
+    width: 135px;
+}
+
+input::placeholder {
+    color: #5F6F89;
+}
+
+button {
+    background: var(--blue);
+    color: #08111F;
+    border: 0;
+    border-radius: 9px;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card h2 {
+    font-size: clamp(19px, 2.5vw, 26px);
+    margin: 17px 0 8px;
+    overflow-wrap: anywhere;
+}
+
+.stat-card .muted {
+    font-size: 11px;
+    margin-bottom: 0;
+}
+
+.main-stat {
+    background:
+        radial-gradient(ellipse at top right, #1B3B69, transparent 65%),
+        var(--panel);
+    border-color: #345782;
+}
+
+.main-stat h2 {
+    color: var(--blue-light);
+    font-size: clamp(23px, 3vw, 32px);
+}
+
+.allowance-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(110deg, #12213A, #0D1728);
+    margin-bottom: 30px;
+}
+
+.allowance-panel h2 {
+    font-size: 34px;
+    color: var(--blue-light);
+    margin: 0 0 8px;
+}
+
+.allowance-panel h2 span {
+    color: var(--muted);
+    font-size: 13px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+}
+
+.allowance-panel .muted {
+    margin-bottom: 0;
+}
+
+.allowance-icon {
+    display: grid;
+    place-items: center;
+    height: 52px;
+    width: 52px;
+    border-radius: 15px;
+    border: 1px solid #355781;
+    background: #1A2E4D;
+    color: var(--blue);
+    font-size: 27px;
+}
+
+.progress-section {
+    padding: 0 2px;
+    margin-bottom: 36px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    margin-bottom: 0;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 8px;
+}
+
+.progress-track {
+    height: 9px;
+    border-radius: 20px;
+    background: #1C2A40;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4B83D9, #91B9FF);
+    border-radius: inherit;
+    transition: width 0.4s ease;
+}
+
+.progress-caption {
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.section-icon {
+    color: var(--blue);
+    background: #192B45;
+    border: 1px solid #304C70;
+    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.section-description {
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+
+.form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-stack label {
+    color: #C5D0E4;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.form-stack button {
+    margin-top: 9px;
+    padding: 14px;
+}
+
+.secondary-button {
+    background: #1A2B45;
+    color: var(--blue-light);
+    border: 1px solid #35547D;
+}
+
+.item-list {
+    margin-top: 22px;
+}
+
+.empty-state {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    padding: 22px 10px;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(117, 167, 255, 0.12);
+}
+
+.list-item:last-child {
+    border-bottom: 0;
+}
+
+.item-info {
+    min-width: 0;
+}
+
+.item-name {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    margin-bottom: 5px;
+}
+
+.item-meta {
+    color: var(--muted);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.item-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.item-amount {
+    font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.delete-button {
+    background: #2A1825;
+    border: 1px solid #56303F;
+    color: var(--danger);
+    padding: 7px 10px;
+    font-size: 11px;
+}
+
+.history-panel {
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 0;
+    font-size: 12px;
+}
+
+footer span {
+    color: var(--blue);
+}
+
+footer .muted {
+    font-size: 11px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 850px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .income-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .inline-form {
+        width: 100%;
+    }
+
+    .inline-form input {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        padding: 18px 6%;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .welcome {
+        padding-top: 35px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 19px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .allowance-panel h2 {
+        font-size: 28px;
+    }
+
+    .month-label {
+        font-size: 11px;
+    }
+
+    .item-right {
+        gap: 6px;
+    }
+}
+
+.savings-total {
+    color: var(--success);
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+#closeDayButton {
+    margin-top: 16px;
+}
+
+#closeDayButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==================================
+   MIDNIGHT MONEY — DASHBOARD UPGRADE
+   ================================== */
+
+body {
+    background:
+        radial-gradient(
+            ellipse at 15% 0%,
+            rgba(58, 91, 165, 0.16),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 100% 25%,
+            rgba(101, 75, 170, 0.10),
+            transparent 35%
+        ),
+        var(--bg);
+    background-attachment: fixed;
+}
+
+/* Smoother typography */
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.045em;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+/* Refined dashboard cards and panels */
+
+.panel,
+.stat-card,
+.summary-card {
+    border: 1px solid rgba(137, 169, 230, 0.13);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 33, 56, 0.96),
+            rgba(12, 20, 35, 0.98)
+        );
+}
+
+/* Subtle hover effect */
+
+.panel:hover,
+.stat-card:hover,
+.summary-card:hover {
+    border-color: rgba(117, 167, 255, 0.30);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+/* Main balance and important amounts */
+
+#availableBalance {
+    color: var(--blue-light);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    text-shadow: 0 0 28px rgba(117, 167, 255, 0.12);
+}
+
+/* More polished buttons */
+
+button {
+    border-radius: 12px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(76, 123, 220, 0.16);
+    filter: brightness(1.08);
+}
+
+button:not(:disabled):active {
+    transform: translateY(0);
+}
+
+/* Cleaner input fields */
+
+input,
+select,
+textarea {
+    border-radius: 12px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(117, 167, 255, 0.12);
+}
+
+/* Better section headings */
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+/* Progress bar polish */
+
+.progress-bar,
+progress {
+    accent-color: var(--blue);
+}
+
+/* Cleaner transaction and bill items */
+
+.item-list > * {
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* Responsive spacing */
+
+@media (max-width: 600px) {
+    .panel,
+    .stat-card,
+    .summary-card {
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: clamp(26px, 7vw, 36px);
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================
+   MIDNIGHT MONEY — REAL DASHBOARD REDESIGN
+   ========================================= */
+
+/* More breathing room across the page */
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 36px 28px;
+}
+
+.topbar {
+    padding: 22px  max(28px, calc((100% - 1104px) / 2));
+    border-bottom: 1px solid rgba(117, 167, 255, 0.12);
+    background: rgba(7, 11, 20, 0.82);
+    backdrop-filter: blur(16px);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+/* Welcome area */
+.welcome {
+    padding: 32px 0 38px;
+}
+
+.welcome h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin: 12px 0;
+}
+
+.welcome h1 span {
+    color: var(--blue-light);
+}
+
+.welcome .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Shared premium panel treatment */
+.panel {
+    background: linear-gradient(
+        135deg,
+        rgba(19, 31, 52, 0.98),
+        rgba(11, 19, 33, 0.98)
+    );
+    border: 1px solid rgba(137, 169, 230, 0.15);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+}
+
+/* Income section */
+.income-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.income-panel h2,
+.section-heading h2 {
+    margin-top: 7px;
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.inline-form input {
+    width: 145px;
+}
+
+/* Summary cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 24px 0;
+}
+
+.stat-card {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid rgba(137, 169, 230, 0.14);
+    border-radius: 18px;
+    background: rgba(16, 26, 44, 0.92);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(117, 167, 255, 0.4);
+}
+
+/* Make available balance the main feature */
+.stat-card.main-stat {
+    grid-column: 1 / -1;
+    padding: 32px;
+    background:
+        radial-gradient(
+            ellipse at 90% 0%,
+            rgba(83, 130, 226, 0.24),
+            transparent 48%
+        ),
+        linear-gradient(120deg, #142643, #0d1729 75%);
+    border-color: rgba(117, 167, 255, 0.32);
+}
+
+.main-stat h2 {
+    font-size: clamp(38px, 6vw, 54px);
+    color: var(--blue-light);
+    letter-spacing: -2px;
+    margin: 14px 0;
+    overflow-wrap: anywhere;
+}
+
+.stat-card:not(.main-stat) h2 {
+    font-size: clamp(22px, 3vw, 29px);
+    margin: 14px 0 10px;
+    overflow-wrap: anywhere;
+}
+
+/* Daily allowance feature */
+.allowance-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 28px 0;
+    padding: 30px;
+    background:
+        linear-gradient(
+            110deg,
+            rgba(34, 58, 96, 0.85),
+            rgba(16, 26, 45, 0.98)
+        );
+    border-color: rgba(117, 167, 255, 0.25);
+}
+
+.allowance-panel h2 {
+    font-size: clamp(32px, 4vw, 42px);
+    color: var(--blue-light);
+    margin: 12px 0;
+}
+
+.allowance-panel h2 span {
+    font-size: 16px;
+    color: var(--muted);
+    letter-spacing: 0;
+}
+
+.allowance-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border: 1px solid rgba(169, 200, 255, 0.24);
+    border-radius: 20px;
+    background: rgba(117, 167, 255, 0.1);
+    color: var(--blue-light);
+    font-size: 30px;
+}
+
+/* Monthly progress */
+.progress-section {
+    padding: 24px 4px 30px;
+    margin-bottom: 12px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.progress-track {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #202c41;
+    margin: 20px 0 12px;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #658df4, #9bbfff);
+    box-shadow: 0 0 18px rgba(117, 167, 255, 0.28);
+    transition: width 0.35s ease;
+}
+
+.progress-caption {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Bills and expenses side by side */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+    margin: 12px 0 24px;
+}
+
+.content-grid > .panel {
+    min-width: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.section-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    color: var(--blue-light);
+    background: rgba(117, 167, 255, 0.1);
+    border: 1px solid rgba(117, 167, 255, 0.16);
+}
+
+.section-description {
+    line-height: 1.7;
+    font-size: 13px;
+    margin: 14px 0 22px;
+}
+
+/* Forms */
+.form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.form-stack label {
+    font-size: 13px;
+    color: #c3cee2;
+    margin-top: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    color: var(--text);
+    background: rgba(5, 10, 19, 0.58);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(117, 167, 255, 0.1);
+}
+
+button {
+    border-radius: 11px;
+    padding: 12px 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Transactions and savings */
+.history-panel {
+    margin: 24px 0;
+}
+
+.item-list {
+    margin-top: 20px;
+}
+
+.empty-state {
+    padding: 20px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.savings-total {
+    color: var(--success);
+    font-size: 38px;
+    letter-spacing: -1px;
+    margin: 24px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0 12px;
+    line-height: 1.9;
+}
+
+footer span {
+    color: var(--blue);
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    .topbar {
+        padding: 18px 16px;
+    }
+
+    .welcome {
+        padding: 24px 0 28px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .stat-card.main-stat {
+        grid-column: 1 / -1;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .panel {
+        padding: 21px;
+    }
+
+    .income-panel {
+        align-items: stretch;
+    }
+
+    .inline-form {
+        width: 100%;
+    }
+
+    .inline-form input {
+        flex: 1;
+        width: 80px;
+    }
+
+    .allowance-panel {
+        padding: 23px;
+    }
+}
+
+@media (max-width: 420px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card.main-stat {
+        grid-column: auto;
+    }
+
+    .allowance-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+    }
+}
+/* MIDNIGHT MONEY — VISUAL TEST */
+.stat-card.main-stat {
+    background: linear-gradient(135deg, #203e70, #101a30) !important;
+    border: 2px solid #75a7ff !important;
+    border-radius: 24px !important;
+    padding: 36px !important;
+    box-shadow: 0 0 35px rgba(117, 167, 255, 0.2) !important;
+}
+
+.stat-card.main-stat h2 {
+    font-size: 52px !important;
+    color: #a9c8ff !important;
+}
+
+/* MIDNIGHT MONEY — SUMMARY CARD UPGRADE */
+
+.stat-card:not(.main-stat) {
+    background: linear-gradient(
+        145deg,
+        #152239,
+        #0c1423
+    ) !important;
+    border: 1px solid #293c59 !important;
+    border-radius: 20px !important;
+    padding: 26px !important;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:not(.main-stat):hover {
+    transform: translateY(-4px);
+    border-color: #75a7ff !important;
+}
+
+.stat-card:not(.main-stat) h2 {
+    font-size: 29px !important;
+    color: #e4edff;
+    margin: 16px 0 10px;
+}
+
+.stat-card:not(.main-stat) .eyebrow {
+    color: #8faee4;
+}
+
+/* MIDNIGHT MONEY — DAILY ALLOWANCE UPGRADE */
+
+.allowance-panel {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(117, 167, 255, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(120deg, #172b49, #101a2d 75%) !important;
+    border: 1px solid rgba(117, 167, 255, 0.3) !important;
+    border-radius: 24px !important;
+    padding: 34px !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.allowance-panel h2 {
+    font-size: 42px !important;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #b6d1ff !important;
+    margin: 14px 0;
+}
+
+.allowance-panel h2 span {
+    font-size: 16px !important;
+    color: #8c9ab4 !important;
+    letter-spacing: 0;
+}
+
+.allowance-panel .eyebrow {
+    color: #8fb4ff;
+}
+
+.allowance-panel .allowance-icon {
+    width: 66px;
+    height: 66px;
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    background: rgba(117, 167, 255, 0.12);
+    border: 1px solid rgba(117, 167, 255, 0.25);
+    color: #b6d1ff;
+    font-size: 32px;
+}
+
+.allowance-panel button {
+    margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+    .allowance-panel {
+        padding: 24px !important;
+    }
+
+    .allowance-panel h2 {
+        font-size: 32px !important;
+    }
+}
+
+/* MIDNIGHT MONEY — FORM PANELS */
+
+.content-grid {
+    gap: 24px;
+    align-items: stretch;
+}
+
+.content-grid > .panel {
+    background:
+        linear-gradient(145deg, #15233a, #0c1525) !important;
+    border: 1px solid rgba(117, 167, 255, 0.17) !important;
+    border-radius: 22px !important;
+    padding: 30px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+    transition: border-color 0.25s ease;
+}
+
+.content-grid > .panel:hover {
+    border-color: rgba(117, 167, 255, 0.4) !important;
+}
+
+/* Form labels */
+.form-stack label {
+    color: #b8c9e5;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Input fields */
+.form-stack input,
+.form-stack select {
+    background: #091323 !important;
+    border: 1px solid #293b58 !important;
+    border-radius: 12px !important;
+    padding: 14px 15px !important;
+    color: #f0f4ff !important;
+    font-size: 14px;
+}
+
+.form-stack input::placeholder {
+    color: #687994;
+}
+
+.form-stack input:focus,
+.form-stack select:focus {
+    border-color: #75a7ff !important;
+    box-shadow: 0 0 0 3px rgba(117, 167, 255, 0.12) !important;
+}
+
+/* Form buttons */
+.form-stack button {
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Section headings */
+.content-grid .section-heading h2 {
+    font-size: 23px;
+    letter-spacing: -0.7px;
+}
+
+.content-grid .section-icon {
+    background: rgba(117, 167, 255, 0.12);
+    border: 1px solid rgba(117, 167, 255, 0.22);
+    color: #a9c8ff;
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+    .content-grid > .panel {
+        padding: 23px !important;
+    }
+}
+
+/* MIDNIGHT MONEY — TRANSACTIONS & SAVINGS */
+
+.history-panel {
+    background:
+        linear-gradient(145deg, #142239, #0c1525) !important;
+    border: 1px solid rgba(117, 167, 255, 0.17) !important;
+    border-radius: 22px !important;
+    padding: 30px !important;
+    margin: 24px 0;
+}
+
+/* Transaction and savings headings */
+.history-panel .section-heading h2 {
+    font-size: 24px;
+    letter-spacing: -0.8px;
+}
+
+/* Individual transaction and bill rows */
+.item-list > * {
+    border-bottom: 1px solid rgba(137, 169, 230, 0.10);
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+/* Empty states */
+.empty-state {
+    color: #8192ae;
+    font-size: 14px;
+    text-align: center;
+    padding: 28px 12px;
+}
+
+/* Savings amount */
+.savings-total {
+    font-size: 44px !important;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #86e5c0 !important;
+    text-shadow: 0 0 25px rgba(134, 229, 192, 0.12);
+    margin: 25px 0 !important;
+}
+
+/* Savings section icon */
+.history-panel .section-icon {
+    color: #86e5c0;
+    background: rgba(134, 229, 192, 0.09);
+    border: 1px solid rgba(134, 229, 192, 0.2);
+}
+
+/* Transaction count */
+#transactionCount {
+    font-size: 12px;
+}
+
+/* Footer polish */
+footer {
+    padding: 35px 0 20px;
+    border-top: 1px solid rgba(137, 169, 230, 0.10);
+    margin-top: 35px;
+}
+
+footer p:first-child {
+    color: #c7d7f5;
+    font-weight: 600;
+}
+
+footer span {
+    color: #a9c8ff;
+}
+
+/* MIDNIGHT MONEY — FINAL DETAILS */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: rgba(117, 167, 255, 0.3);
+    color: white;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #75a7ff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .history-panel {
+        padding: 22px !important;
+    }
+
+    .savings-total {
+        font-size: 36px !important;
+    }
+}
+
+/* MIDNIGHT MONEY — HEADER & HERO */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px max(28px, calc((100% - 1104px) / 2));
+    background: rgba(7, 11, 20, 0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(117, 167, 255, 0.16);
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #f0f4ff;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #75a7ff;
+}
+
+.month-label {
+    padding: 9px 16px;
+    border: 1px solid rgba(117, 167, 255, 0.25);
+    border-radius: 30px;
+    background: rgba(117, 167, 255, 0.09);
+    color: #b6d1ff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.welcome {
+    position: relative;
+    padding: 65px 0 48px;
+}
+
+.welcome .eyebrow {
+    color: #8fb4ff;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.welcome h1 {
+    max-width: 700px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.08;
+    letter-spacing: -2.8px;
+    margin: 18px 0;
+}
+
+.welcome h1 span {
+    background: linear-gradient(
+        100deg,
+        #a9c8ff,
+        #829fff,
+        #c4b2ff
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.welcome .subtitle {
+    max-width: 480px;
+    color: #91a0ba;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        padding: 16px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .welcome {
+        padding: 42px 0 32px;
+    }
+
+    .welcome h1 {
+        letter-spacing: -1.8px;
+    }
+}
+
+/* MIDNIGHT MONEY — NAVIGATION */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--blue-light);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+@media (max-width: 850px) {
+    .main-nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-nav a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* MIDNIGHT MONEY — QUICK ADD BUTTON */
+
+.quick-add-button {
+    position: fixed;
+    right: 32px;
+    bottom: 30px;
+    z-index: 200;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 23px;
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, #75a7ff, #8b91ff);
+    color: #07101f;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 8px 30px rgba(89, 133, 230, 0.3);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-add-button span {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.quick-add-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(89, 133, 230, 0.45);
+}
+
+@media (max-width: 600px) {
+    .quick-add-button {
+        right: 18px;
+        bottom: 20px;
+        padding: 13px 18px;
+    }
+}
+
+/* DATA BACKUP SECTION */
+
+.backup-panel {
+    margin: 24px 0;
+    border: 1px solid rgba(117, 167, 255, 0.2);
+    background: linear-gradient(135deg, #142239, #0c1525);
+}
+
+.backup-panel button {
+    margin-top: 20px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, #75a7ff, #8b91ff);
+    color: #07101f;
+    border: none;
+    font-weight: 700;
+    border-radius: 12px;
+}
+
+.backup-note {
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* MIDNIGHT MONEY — SAVINGS GOALS */
+
+.goals-panel {
+    margin: 24px 0;
+}
+
+.goal-form {
+    display: grid;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 22px;
+    background: rgba(5, 10, 19, 0.35);
+    border: 1px solid rgba(117, 167, 255, 0.13);
+    border-radius: 16px;
+}
+
+.goal-form label {
+    color: #b8c9e5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.goal-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #293b58;
+    border-radius: 11px;
+    background: #091323;
+    color: var(--text);
+}
+
+.goal-form button {
+    margin-top: 8px;
+}
+
+.goals-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.goal-card {
+    padding: 22px;
+    background: linear-gradient(145deg, #172740, #101a2c);
+    border: 1px solid rgba(117, 167, 255, 0.17);
+    border-radius: 17px;
+}
+
+.goal-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.goal-card h3 {
+    margin: 0 0 8px;
+    color: #eaf1ff;
+}
+
+.goal-amount {
+    color: #a9c8ff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.goal-progress-track {
+    height: 9px;
+    margin: 18px 0 10px;
+    background: #26354d;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #75a7ff, #a9c8ff);
+    border-radius: inherit;
+}
+
+.goal-progress-label {
+    color: #91a4c3;
+    font-size: 12px;
+}
+
+.goal-contribution {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.goal-contribution input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+}
+
+.goal-delete {
+    margin-top: 14px;
+    padding: 8px 12px;
+    color: #ff929e;
+    background: rgba(255, 146, 158, 0.08);
+    border: 1px solid rgba(255, 146, 158, 0.18);
+    border-radius: 9px;
+}
+
+@media (max-width: 500px) {
+    .goal-contribution {
+        flex-wrap: wrap;
+    }
+
+    .goal-contribution input {
+        flex-basis: 100%;
+    }
+}
+
+/* MONTHLY EXPENSE CALENDAR */
+
+.calendar-panel {
+    margin: 24px 0;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0 20px;
+}
+
+.calendar-header h3 {
+    color: #eaf1ff;
+    font-size: 18px;
+    margin: 0;
+}
+
+.calendar-header button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(117,167,255,.2);
+    border-radius: 10px;
+    background: #172740;
+    color: #a9c8ff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+    color: #8296b5;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+.calendar-day {
+    min-height: 65px;
+    padding: 9px 5px;
+    border: 1px solid rgba(117,167,255,.12);
+    border-radius: 11px;
+    background: rgba(15,29,49,.8);
+    color: #dce8ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    border-color: #75a7ff;
+    background: #1b304e;
+}
+
+.calendar-day.today {
+    border-color: #75a7ff;
+}
+
+.calendar-day.selected {
+    background: #263e61;
+    border-color: #a9c8ff;
+}
+
+.calendar-day.empty {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.calendar-day .day-number {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.calendar-day .day-spending {
+    display: block;
+    color: #91baff;
+    font-size: 10px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.calendar-details {
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 14px;
+    background: rgba(5,10,19,.35);
+    border: 1px solid rgba(117,167,255,.13);
+}
+
+.calendar-details h3 {
+    color: #eaf1ff;
+    margin-top: 0;
+}
+
+@media (max-width: 500px) {
+    .calendar-weekdays,
+    .calendar-grid {
+        gap: 4px;
+    }
+
+    .calendar-day {
+        min-height: 55px;
+        padding: 7px 2px;
+    }
+
+    .calendar-day .day-spending {
+        font-size: 9px;
+    }
+}
+.logout-button {
+    background: transparent;
+    color: #ff9ca9;
+    border: 1px solid rgba(255, 156, 169, 0.3);
+    border-radius: 9px;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background: rgba(255, 156, 169, 0.1);
+}
+
+#dashboardContent[hidden] {
+    display: none !important;
+}
