@@ -36,9 +36,13 @@ The application features user authentication and cloud-based data storage, allow
 5. Track savings and create savings goals.
 6. Access saved financial data after logging in again.
 
+## Live Demo
+
+[Try Midnight Money] (https://vaishnavib140707.github.io/money/login.html)
+
 ## Project Status
 
-Core functionality implemented and tested. Live deployment is planned.
+Deployed and available online.
 
 ## Future Improvements
 
